@@ -18,11 +18,14 @@ public class MyAutomation {
 		
 	   //WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		//driver.get("https://www.google.com/");
+		//driver.get("");
 		driver.navigate().to("https://www.google.com/");
 		System.out.println("Page Title.."+ driver.getTitle());
 		
-		WebElement src_box= driver.findElement(By.id("APjFqb"));
+		//WebElement src_box= driver.findElement(By.id("APjFqb"));
+		WebElement src_box= driver.findElement(By.name("q"));
+		//WebElement src_box= driver.findElement(By.className("gLFyf"));
+		//WebElement src_box= driver.findElement(By.tagName("textarea"));
 		src_box.sendKeys("Java Tutorial");
 		src_box.sendKeys(Keys.ENTER);
 		
