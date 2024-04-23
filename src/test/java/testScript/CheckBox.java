@@ -21,6 +21,9 @@ public class CheckBox {
         driver.get("https://demo.seleniumeasy.com/basic-radiobutton-demo.html");
         driver.findElement(By.xpath("//input[@value='5 - 15']")).click();
         
+        
+        
+        
 	}
 
 }
