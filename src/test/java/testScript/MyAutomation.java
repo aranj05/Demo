@@ -1,5 +1,8 @@
 package testScript;
 
+import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -11,14 +14,17 @@ public class MyAutomation {
 
 	public static void main(String[] args) {
 		
-		ChromeOptions options= new ChromeOptions();
+		//ChromeOptions options= new ChromeOptions();
 		//options.setBrowserVersion("115");       //run test on chrome version-115
-		options.addArguments("--headless");
-		WebDriver driver=new ChromeDriver(options);
+		//options.addArguments("--headless");
+		//WebDriver driver=new ChromeDriver(options);
 		
-	   //WebDriver driver=new ChromeDriver();
+	    WebDriver driver=new ChromeDriver();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().window().maximize();
-		//driver.get("");
+		
+		//driver.get("https://www.google.com/");
+		
 		driver.navigate().to("https://www.google.com/");
 		System.out.println("Page Title.."+ driver.getTitle());
 		
@@ -27,16 +33,19 @@ public class MyAutomation {
 		//WebElement src_box= driver.findElement(By.className("gLFyf"));
 		//WebElement src_box= driver.findElement(By.tagName("textarea"));
 		src_box.sendKeys("Java Tutorial");
-		src_box.sendKeys(Keys.ENTER);
+		//src_box.sendKeys(Keys.ENTER);
 		
-		System.out.println("Page Title.."+ driver.getTitle());
-		System.out.println("new Url: "+ driver.getCurrentUrl());
+		List<WebElement> listItems= driver.findElements(By.xpath("//ul[@role='listbox']//li//descendant::div[@class='YacQv'])"));
+		System.out.println("total items: "+listItems.size());
 		
-		driver.navigate().back();
+		//System.out.println("Page Title.."+ driver.getTitle());
+		//System.out.println("new Url: "+ driver.getCurrentUrl());
 		
-		System.out.println("page title after back"+ driver.getTitle());
+		//driver.navigate().back();
 		
-		driver.navigate().forward();
+		//System.out.println("page title after back"+ driver.getTitle());
+		
+		//driver.navigate().forward();
 		//driver.navigate().refresh();
 	}
 

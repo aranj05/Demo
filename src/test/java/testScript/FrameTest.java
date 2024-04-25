@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class FrameTest {
 
@@ -31,7 +32,11 @@ public class FrameTest {
 		driver.switchTo().defaultContent();
 		System.out.println(driver.findElement(By.xpath("//label//span")).getText());
 		
-		
+		//select items from frame2 dropdown
+		driver.switchTo().frame("frame2");
+		//driver.findElement(By.xpath("//select[@id='animals']");
+		Select val= new Select(driver.findElement(By.xpath("//select[@id='animals']")));
+		val.selectByValue("babycat");
 	}
 
 }
